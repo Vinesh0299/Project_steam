@@ -1,0 +1,72 @@
+CREATE TABLE `Bank_account` (
+  `Account_no` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Gender` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `BirthDate` date NOT NULL,
+  `Account_pin` int(11) NOT NULL,
+   PRIMARY KEY(`Account_no`)
+);
+
+CREATE TABLE `Bank_acc_address` (
+  `Account_no` int(11) NOT NULL,
+  `Country` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `City` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Street` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Pincode` int(11) NOT NULL,
+   PRIMARY KEY(`Account_no`)
+);
+
+CREATE TABLE `Developers` (
+  `Developer_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `No_of_games` int(11) DEFAULT NULL,
+  `Email_Id` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+   PRIMARY KEY(`Developer_Id`)
+);
+
+CREATE TABLE `Developers_address` (
+  `Developer_Id` int(11) NOT NULL,
+  `Street` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `City` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Country` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Pincode` int(11) NOT NULL,
+   PRIMARY KEY(`Developer_Id`)
+);
+
+CREATE TABLE `Friendship` (
+  `Sender` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Reciever` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Date_sent` date NOT NULL,
+  `Request_status` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL
+);
+
+CREATE TABLE `Users` (
+  `User_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Email_Id` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Gender` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `BirthDate` date NOT NULL,
+  `Password` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+   PRIMARY KEY(`User_Id`)
+);
+
+CREATE TABLE `Users_address` (
+  `User_Id` int(11) NOT NULL,
+  `Street` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `City` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Country` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Pincode` int(11) NOT NULL,
+   PRIMARY KEY(`User_Id`)
+);
+
+CREATE TABLE `Users_phone` (
+    `Account_no` INT NOT NULL,
+    `Phone_num` INT NOT NULL
+);
+
+CREATE TABLE `Developers_phone` (
+    `Developer_Id` INT NOT NULL,
+    `Phone_num` INT NOT NULL
+);
