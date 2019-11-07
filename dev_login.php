@@ -2,7 +2,7 @@
    session_start();
    $name = $_POST['name'];
    $password = $_POST['password'];
-   $conn = new mysqli('localhost','root','longterm','steam');
+   $conn = new mysqli('localhost', 'project_steam', 'projectsteam', 'Project_steam');
    $query = ''; $pass = '';
    if(!empty($username)) {
       $query = "SELECT Password FROM developers WHERE name = '$name' LIMIT 1";
