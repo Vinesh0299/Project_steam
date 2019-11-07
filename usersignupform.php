@@ -115,6 +115,8 @@ if($done == 1) {
                 <div>
                     <p style="font-size: smaller; color: red;">(*) - Details must not remain empty</p>
                 </div>
+                <p>Already have an account ?</p>
+                <p>Click <a href="userlogin.php">here</a></p>
             </form>
         </center>
     </body>
