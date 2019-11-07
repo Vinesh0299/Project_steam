@@ -82,10 +82,7 @@ if($done == 1) {
       <p>Pincode:</p>
       <input type="text" name="pincode">
     </div>
-    <div>
-      <p class="important">Username:</p>
-      <input type="text" name="username">
-    </div>
+   
     <div>
       <p class="important">Password:</p>
       <input type="password" name="password">
