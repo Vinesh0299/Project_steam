@@ -13,7 +13,7 @@ $query = '';
 $bool_exist = false;
 
 if(!empty($name)) {
-    $query = "SELECT name FROM developers WHERE name = '$name'";
+    $query = "SELECT name FROM Developers WHERE name = '$name'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
     if($row > 0) {
@@ -29,17 +29,17 @@ if($bool_exist) {
         header("Location: devloper_signup_form.php?done=3");
     } else {
 
-        $query = "INSERT INTO developers (Name, Email_Id, Password) VALUES (?, ?, ?)";
+        $query = "INSERT INTO Developers (Name, Email_Id, Password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sss", $name, $email,$password);
         $stmt->execute();
 
-        $query = "SELECT Developer_Id FROM developers WHERE name = '$name' LIMIT 1";
+        $query = "SELECT Developer_Id FROM Developers WHERE name = '$name' LIMIT 1";
         $result = $conn->query($query);
         $row = $result->fetch_assoc();
         $user_Id = $row['Developer_Id'];
 
-        $query = "INSERT INTO developers_address (Developer_Id, Street, City, Country, Pincode) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO Developers_address (Developer_Id, Street, City, Country, Pincode) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sssss", $Developer_Id, $street, $city, $country, $pincode);
         $stmt->execute();
