@@ -8,7 +8,7 @@ $pincode = $_POST['pincode'];
 $pincode = (int)$pincode;
 $password = $_POST['password'];
 $confpassword = $_POST['confpassword'];
-$conn = new mysqli('localhost','root','longterm','steam');
+$conn = new mysqli('localhost', 'project_steam', 'projectsteam', 'Project_steam');
 $query = '';
 $bool_exist = false;
 
