@@ -11,11 +11,11 @@
       $pass = $row['Password'];
    }
    if(empty($name) || empty($password)) {
-      header("Location: erroruser.php?done=3");
+      header("Location: error_dev.php?done=3");
    } else if(empty($pass)) {
-      header("Location: erroruser.php?done=2");
+      header("Location: error_dev.php?done=2");
    } else if($password != $pass) {
-      header("Location: erroruser.php?done=1");
+      header("Location: error_dev.php?done=1");
    } else {
       $_SESSION['login_dev'] = $name;
       header("Location: dev_profile.php");
