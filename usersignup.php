@@ -6,9 +6,9 @@ $date = $_POST['birthdate'];
 $date = str_replace('/', '-', $date);
 date('Y-m-d', $date);
 $gender = $_POST['gender'];
-if($gender == "male") {
+if($gender == "male" || $gender == "Male") {
     $gender = "M";
-} else {
+} else if($gender == "female" || $gender == "Female") {
     $gender = "F";
 }
 $street = $_POST['street'];

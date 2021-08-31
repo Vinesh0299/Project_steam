@@ -44,7 +44,7 @@ $account_no = $row['Account_no'];
             }
             #bank div {
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 margin-top: 20px;
             }
         </style>
@@ -66,61 +66,35 @@ $account_no = $row['Account_no'];
                     $result = $conn->query("SELECT * FROM Bank_account WHERE User_Id = '$User_Id' LIMIT 1");
                     $row = $result->fetch_assoc();
                 ?>
-                <div>
-                    <p><b>Name:</b></p>
-                    <?php
-                        echo "<p>" . $row['Name']. "</p>"
-                    ?>
-                </div>
-                <div>
-                    <p><b>Gender:</b></p>
-                    <?php
-                        if($row['Gender'] == "M") {
-                            echo "<p>"; echo "Male"; echo "</p>";
-                        } else if($row['Gender'] == "F") {
-                            echo "<p>"; echo "Female"; echo "</p>";
-                        }
-                    ?>
-                </div>
-                <div>
-                    <p><b>Date of Birth:</b></p>
-                    <?php
-                        echo "<p>" . $row['BirthDate']. "</p>"
-                    ?>
-                </div>
-                <div>
-                    <p><b>Account Pin:</b></p>
-                    <?php
-                        echo "<p>" . $row['Account_pin']. "</p>"
-                    ?>
-                </div>
-                <?php
-                    $result = $conn->query("SELECT * FROM Bank_acc_address WHERE Account_no = '$Account_no' LIMIT 1");
-                    $row = $result->fetch_assoc();
-                ?>
-                <div>
-                    <p><b>Street:</b></p>
-                    <?php
-                        echo "<p>" . $row['Street']. "</p>"
-                    ?>
-                </div>
-                <div>
-                    <p><b>City:</b></p>
-                    <?php
-                        echo "<p>" . $row['City']. "</p>"
-                    ?>
-                </div>
-                <div>
-                    <p><b>Country:</b></p>
-                    <?php
-                        echo "<p>" . $row['Country']. "</p>"
-                    ?>
-                </div>
-                <div>
-                    <p><b>Pincode:</b></p>
-                    <?php
-                        echo "<p>" . $row['Pincode']. "</p>"
-                    ?>
+                <div style="display: flex;">
+                    <div style="display: flex; flex-direction: column; text-align: left;">
+                        <p><b>Name:</b></p>
+                        <p><b>Gender:</b></p>
+                        <p><b>Date of Birth:</b></p>
+                        <p><b>Account Pin:</b></p>
+                        <p><b>Street:</b></p>
+                        <p><b>City:</b></p>
+                        <p><b>Country:</b></p>
+                        <p><b>Pincode:</b></p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; text-align: left; padding-left: 5%;">
+                        <?php
+                            echo "<p>" . $row['Name']. "</p>";
+                            if($row['Gender'] == "M") {
+                                echo "<p>"; echo "Male"; echo "</p>";
+                            } else if($row['Gender'] == "F") {
+                                echo "<p>"; echo "Female"; echo "</p>";
+                            }
+                            echo "<p>" . $row['BirthDate']. "</p>";
+                            echo "<p>" . $row['Account_pin']. "</p>";
+                            $result = $conn->query("SELECT * FROM Bank_acc_address WHERE Account_no = '$Account_no' LIMIT 1");
+                            $row = $result->fetch_assoc();
+                            echo "<p>" . $row['Street']. "</p>";
+                            echo "<p>" . $row['City']. "</p>";
+                            echo "<p>" . $row['Country']. "</p>";
+                            echo "<p>" . $row['Pincode']. "</p>";
+                        ?>
+                    </div>
                 </div>
             </div>
         </center>

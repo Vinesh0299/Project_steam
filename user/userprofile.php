@@ -1,4 +1,8 @@
 <?php
+$done = $_GET['done'];
+if($done == 10) {
+    echo '<script type="text/javascript">alert("You Bought the game successfully!!")</script>';
+}
 session_start();
 
 $User_Id = $_SESSION['User_Id'];

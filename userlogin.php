@@ -21,6 +21,10 @@
       header("Location: erroruser.php?done=1");
    } else {
       $_SESSION['login_user'] = $username;
-      header("Location: userprofile.php");
+      $query = "SELECT User_Id FROM Users WHERE Username = '$username' LIMIT 1";
+      $result = $conn->query($query);
+      $row = $result->fetch_assoc();
+      $_SESSION['User_Id'] = $row['User_Id'];
+      header("Location: user/userprofile.php");
    }
 ?>

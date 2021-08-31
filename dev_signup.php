@@ -21,12 +21,12 @@ if(!empty($name)) {
     }
 }
 if($bool_exist) {
-    header("Location: devloper_signup_form.php?done=1");
+    header("Location: developer_signup_form.php?done=1");
 } else {
     if(empty($name) || empty($email) || empty($password) || empty($confpassword)) {
-        header("Location: devloper_signup_form.php?done=2");
+        header("Location: developer_signup_form.php?done=2");
     } else if($password != $confpassword) {
-        header("Location: devloper_signup_form.php?done=3");
+        header("Location: developer_signup_form.php?done=3");
     } else {
 
         $query = "INSERT INTO Developers (Name, Email_Id, Password) VALUES (?, ?, ?)";
@@ -45,6 +45,7 @@ if($bool_exist) {
         $stmt->execute();
 
         $conn->close();
+        header("Location: developer/dev_profile.php");
     }
 }
 

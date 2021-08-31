@@ -24,7 +24,7 @@ if(isset($_SESSION['login_user'])) {
     <body>
         <center>
             <h1>You were successfully logged out of steam......</h1>
-            <p>Click <a href="../usersteam.html">here</a> to login again</p>
+            <p>Click <a href="../steam.html">here</a> to login again</p>
         </center>
     </body>
 </html>
